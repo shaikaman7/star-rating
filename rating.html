@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Star Rating</title>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+            box-sizing: border-box;
+        }
+        body{
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            background: linear-gradient(45deg, #ffd195, #bf14b1);
+        }
+        .rating_heading{
+          color: white;
+          animation: slide-up 2s ease;
+        }
+        @keyframes slide-up {
+          0%{
+            opacity: 0;
+            transform: translateY(50px);
+          }
+          100%{
+            opacity: 1;
+            transform: translateY(10px);
+          }
+        }
+        .star_rating{
+            user-select: none;
+            background-color: white;
+            margin: 2rem;
+            padding: 1.4rem 2.5rem;
+            border-radius: .4rem;
+            text-align: center;
+            animation: slide-up 2s ease;
+            box-shadow: 0px 20px 15px black;
+        }
+        @keyframes slide-up {
+          0%{
+            opacity: 0;
+            transform: translateY(50px);
+          }
+          100%{
+            opacity: 1;
+            transform: translateY(10px);
+          }
+        }
+        .star{
+            font-size: 4rem;
+            color: #ff9800;
+            background-color: unset;
+            border: none;
+        }
+        .star:hover{
+            cursor: pointer;
+        }
+     
+       .textarea{
+        margin-top: 10px;
+        height: 100px;
+        width: 100%;
+        overflow: hidden;
+       }
+       .textarea textarea{
+        height: 100%;
+        width: 100%;
+        outline: 1px solid #333;
+        color: #eee;
+        background-color: #222;
+        padding: 10px;
+        font-size: 17px;
+        resize: none;
+       }
+       .btn{
+        height: 45px;
+        width: 100%;
+        margin: 15px 0;
+       }
+       .btn button{
+        height: 100%;
+        width: 100%;       
+        background: black;
+        color: #999;
+        font-size: 17px;
+        font-weight: 500;
+        cursor: pointer;
+       
+       }
+       .para{
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight: bolder ;
+       }
+    </style>
+  </head>
+  <body >
+    <h1 class="rating_heading">5 star rating</h1>
+    <br>
+    <div class="star_rating" onclick="Demo()">
+      <p class="para">How was your experience?</p>
+      <!--star symbol keyword is &#9734-->
+      <button class="star" id="rate-1">&#9734</button>
+      <button class="star" id="rate-2">&#9734</button>
+      <button class="star" id="rate-3">&#9734</button>
+      <button class="star" id="rate-4">&#9734</button>
+      <button class="star" id="rate-5">&#9734</button>
+     <br>
+     <header></header>
+     <div class="textarea"><textarea placeholder="Describe your experience.."  cols="30" rows="10"></textarea></div>
+     <br>
+    <div class="btn">
+      <button type="submit">submit</button>
+    </div>
+    </div>
+    <script>
+       const allStars = document.querySelectorAll('.star')
+      
+        allStars.forEach((star,i)=>{
+            star.onclick= function(){
+               let current_star= i+1
+                                        
+               allStars.forEach((star,j)=>{
+                if(current_star >= j+1){
+                  star.innerHTML='&#9733'
+                }else{
+                  star.innerHTML='&#9734'
+                }
+
+               })
+            }
+        })
+       
+    </script>
+  </body>
+</html>
